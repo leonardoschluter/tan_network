@@ -4,6 +4,8 @@ import java.util.Set;
 public class Vertice {
 	private Integer id;
 	private String info;
+	private Double latitude;
+	private Double longitude;
 	private Integer valor;
 	private Boolean marcado;
 	private Set<Vertice> sucessores ;
@@ -66,6 +68,13 @@ public class Vertice {
 	public Set<Vertice> getAntecessores() {
 		return antecessores;
 	}
-	
-	
+
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
 }
