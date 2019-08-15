@@ -1,5 +1,6 @@
 import exceptions.NegativeWeightException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class BellmanFord {
         this.predecessors = new HashMap<>();
 
         //TODO export to static object
-        Vertice vertice = new Vertice(1, "abc", 13);
+        Vertice vertice = new Vertice((double) 0, (double) 0, "NONE", "THE DEFAULT STATION");
         for (Vertice key: vertices){
             this.distances.put(key, Double.MAX_VALUE);
             this.predecessors.put(key, vertice);
@@ -60,5 +61,20 @@ public class BellmanFord {
 
     public HashMap<Vertice, Vertice> getPredecessors() {
         return predecessors;
+    }
+
+    public void printRoutes(Vertice end) {
+        List<String> route = new ArrayList<>();
+        Vertice predecessor = end;
+        while( predecessor != this.source) {
+            route.add(predecessor.getFullName());
+            predecessor = this.predecessors.get(predecessor);
+        }
+        route.add(source.getFullName());
+
+        for(int i = route.size() -1; i >= 0; i--){
+            System.out.println(route.get(i));
+        }
+
     }
 }
