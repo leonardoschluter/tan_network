@@ -39,7 +39,4 @@ class Solution {
         System.out.println("IMPOSSIBLE");
     }
 
-    public void bellmanFord(List<Vertice> vertices, List<Edge> edges){
-
-    }
 }

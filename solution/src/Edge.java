@@ -1,7 +1,7 @@
 public class Edge {
-    Vertice org;
-    Vertice dest;
-    Double weight;
+    private Vertice org;
+    private Vertice dest;
+    private Double weight;
 
     public Edge(Vertice org, Vertice dest){
         this.org = org;
@@ -17,5 +17,17 @@ public class Edge {
         Double distInRadians = Math.sqrt(x2 +y2);
 
         return distInRadians * 6371;
+    }
+
+    public Vertice getOrg() {
+        return org;
+    }
+
+    public Vertice getDest() {
+        return dest;
+    }
+
+    public Double getWeight() {
+        return weight;
     }
 }
