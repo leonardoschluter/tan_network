@@ -5,14 +5,10 @@ import java.util.*;
 import java.io.*;
 import java.math.*;
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
 class Solution {
 
     public static void main(String args[]) {
-        File text = new File("/home/leonardo/IdeaProjects/tan_network/solution/src/input.txt");
+        File text = new File("/Users/leonardoschluter/Documents/challenge/solution/src/input.txt");
         Scanner in = null;
         try {
             in = new Scanner(text);
@@ -42,23 +38,21 @@ class Solution {
             String[] orgDest = in.nextLine().split(" ");
             Vertice origin = stops.get(orgDest[0].replace("StopArea:", ""));
             Vertice dest = stops.get(orgDest[1].replace("StopArea:", ""));
-            Edge route = new Edge(origin, dest);
+            Edge route = new Edge( dest, origin);
             routes.add(route);
         }
 
         Vertice start = stops.get(startPoint.replace("StopArea:", ""));
         Vertice end = stops.get(endPoint.replace("StopArea:", ""));
 
-        BellmanFord bellmanFord = new BellmanFord(start, stopsList, routes);
+        BellmanFord bellmanFord = new BellmanFord(end, stopsList, routes);
         try{
             bellmanFord.exec();
         } catch (NegativeWeightException e) {
             System.out.println("IMPOSSIBLE");
         }
 
-        bellmanFord.printRoutes(end);
-        // Write an action using System.out.println()
-        // To debug: System.err.println("Debug messages...");
+        bellmanFord.printRoutes(start);
 
     }
 }

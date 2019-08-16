@@ -64,17 +64,11 @@ public class BellmanFord {
     }
 
     public void printRoutes(Vertice end) {
-        List<String> route = new ArrayList<>();
         Vertice predecessor = end;
         while( predecessor != this.source) {
-            route.add(predecessor.getFullName());
+            System.out.println(predecessor.getFullName());
             predecessor = this.predecessors.get(predecessor);
         }
-        route.add(source.getFullName());
-
-        for(int i = route.size() -1; i >= 0; i--){
-            System.out.println(route.get(i));
-        }
-
+        System.out.println(source.getFullName());
     }
 }
